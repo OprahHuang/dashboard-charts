@@ -62,6 +62,21 @@ const jsonData = [
     }
 ]
 
+const jsonDataMonth = [
+    { x: '2023-04', y: 100 },
+    { x: '2023-04', y: 180 },
+    { x: '2023-05', y: 213 },
+    { x: '2023-06', y: 217 },
+    { x: '2023-07', y: 331 },
+    { x: '2023-08', y: 547 },
+    { x: '2023-09', y: 1340 },
+    { x: '2023-10', y: 3031 },
+    { x: '2023-11', y: 4178 },
+    { x: '2023-12', y: 6865 },
+    { x: '2023-01', y: 7200 },
+    { x: '2023-02', y: 7500 },
+]
+
 const jsonData1 = [
     { x: 18, y: 35 },
     { x: 19, y: 88 },
@@ -102,10 +117,11 @@ const jsonData1 = [
 const Home = () => (
     <div className='w-full p-4 mx-auto bg-white'>
         <p className='text-center opacity-50 w-full mt-10 font-semibold'>Accumulated number of App User</p>
-        <VictoryChart 
-            width={800} 
+        <VictoryChart
+            width={800}
             height={300}
-            theme={VictoryTheme.material} 
+            padding={{ right: 40, left: 40, top: 0, bottom: 20}}
+            theme={VictoryTheme.material}
             containerComponent={<VictoryZoomContainer />}
         >
             <VictoryAxis dependentAxis
@@ -114,7 +130,7 @@ const Home = () => (
                 }}
             />
             <VictoryAxis
-                tickFormat={(t) => 'Week ' + t}
+                tickFormat={(t) => t}
                 style={{
                     tickLabels: { fontSize: 8, padding: 5 },
                 }}
@@ -126,12 +142,12 @@ const Home = () => (
                     data: { stroke: "teal", fill: "lightblue", fillOpacity: 0.5 },
                     parent: { border: "1px solid #ccc" },
                 }}
-                data={jsonData1}
+                data={jsonDataMonth}
                 scale={{ x: "linear", y: "linear" }}
             />
             <VictoryScatter
                 samples={5}
-                data={jsonData1}
+                data={jsonDataMonth}
                 style={{
                     parent: {
                         border: "1px solid #ccc"
@@ -139,7 +155,7 @@ const Home = () => (
                     data: { fill: "teal", fillOpacity: 0.9, stroke: "white", strokeWidth: 1 }
                 }}
                 size={2}
-                labelComponent={<VictoryTooltip/>}
+                labelComponent={<VictoryTooltip />}
                 containerComponent={
                     <VictoryCursorContainer
                         cursorLabel={({ datum }) => `${datum.x.toPrecision(2)}, ${datum.y.toPrecision(2)}`}
