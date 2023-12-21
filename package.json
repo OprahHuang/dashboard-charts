@@ -10,14 +10,19 @@
   },
   "dependencies": {
     "@nivo/line": "^0.84.0",
+    "apexcharts": "^3.45.0",
+    "chart.js": "^2.9.3",
     "next": "14.0.4",
     "react": "^18",
+    "react-apexcharts": "^1.4.1",
+    "react-chartjs-2": "^2.9.0",
     "react-dom": "^18",
+    "recharts": "^2.10.3",
     "victory": "^36.7.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.2.45",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
