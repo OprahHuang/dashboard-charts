@@ -1,231 +1,257 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 
-
-interface ChartData {
-    country: string;
-    data: { date: string; visits: number | null }[];
-}
-
-const jsonData: ChartData[] = [
-    {
-        country: "Germany",
-        data: [
-            { date: "2023-01", visits: 120 },
-            { date: "2023-02", visits: 150 },
-            { date: "2023-03", visits: 180 },
-            { date: "2023-04", visits: 200 },
-            { date: "2023-05", visits: 230 },
-            { date: "2023-06", visits: 250 },
-            { date: "2023-07", visits: 280 },
-            { date: "2023-08", visits: 300 },
-            { date: "2023-09", visits: 330 },
-            { date: "2023-10", visits: 350 },
-            { date: "2023-11", visits: 380 },
-            { date: "2023-12", visits: 400 },
-            { date: "2024-01", visits: 450 }, // Placeholder for guessed visiting number
-        ],
-    },
-    {
-        country: "Japan",
-        data: [
-            { date: "2023-01", visits: 80 },
-            { date: "2023-02", visits: 90 },
-            { date: "2023-03", visits: 100 },
-            { date: "2023-04", visits: 110 },
-            { date: "2023-05", visits: 120 },
-            { date: "2023-06", visits: 130 },
-            { date: "2023-07", visits: 140 },
-            { date: "2023-08", visits: 150 },
-            { date: "2023-09", visits: 160 },
-            { date: "2023-10", visits: 170 },
-            { date: "2023-11", visits: 180 },
-            { date: "2023-12", visits: 190 },
-            { date: "2024-01", visits: 240 }, // Placeholder for guessed visiting number
-        ],
-    },
-    {
-        country: "Canada",
-        data: [
-            { date: "2023-01", visits: 50 },
-            { date: "2023-02", visits: 55 },
-            { date: "2023-03", visits: 60 },
-            { date: "2023-04", visits: 65 },
-            { date: "2023-05", visits: 70 },
-            { date: "2023-06", visits: 75 },
-            { date: "2023-07", visits: 80 },
-            { date: "2023-08", visits: 85 },
-            { date: "2023-09", visits: 90 },
-            { date: "2023-10", visits: 95 },
-            { date: "2023-11", visits: 100 },
-            { date: "2023-12", visits: 105 },
-            { date: "2024-01", visits: 145 }, // Placeholder for guessed visiting number
-        ],
-    },
-    {
-        country: "U.K.",
-        data: [
-            { date: "2023-01", visits: 200 },
-            { date: "2023-02", visits: 210 },
-            { date: "2023-03", visits: 220 },
-            { date: "2023-04", visits: 230 },
-            { date: "2023-05", visits: 240 },
-            { date: "2023-06", visits: 250 },
-            { date: "2023-07", visits: 260 },
-            { date: "2023-08", visits: 270 },
-            { date: "2023-09", visits: 280 },
-            { date: "2023-10", visits: 290 },
-            { date: "2023-11", visits: 300 },
-            { date: "2023-12", visits: 310 },
-            { date: "2024-01", visits: 365 }, // Placeholder for guessed visiting number
-        ],
-    },
+const newChartData = [
+  {
+    name: "Team A",
+    data: [
+      { x: "Jan 2023", y: 500 },
+      { x: "Feb 2023", y: 700 },
+      { x: "Mar 2023", y: 900 },
+      { x: "Apr 2023", y: 400 },
+      { x: "May 2023", y: 200 },
+      { x: "Jun 2023", y: 800 },
+      { x: "Jul 2023", y: 1100 },
+      { x: "Aug 2023", y: 1800 },
+      { x: "Sep 2023", y: 800 },
+      { x: "Oct 2023", y: 400 },
+      { x: "Nov 2023", y: 200 },
+      { x: "Dec 2023", y: 400 },
+      { x: "Jan 2024", y: 1000 },
+      { x: "Feb 2024", y: 800 },
+    ],
+  },
+  {
+    name: "Team B",
+    data: [
+      { x: "Jan 2023", y: 1300 },
+      { x: "Feb 2023", y: 1900 },
+      { x: "Mar 2023", y: 1300 },
+      { x: "Apr 2023", y: 1700 },
+      { x: "May 2023", y: 1100 },
+      { x: "Jun 2023", y: 1600 },
+      { x: "Jul 2023", y: 1500 },
+      { x: "Aug 2023", y: 1400 },
+      { x: "Sep 2023", y: 1900 },
+      { x: "Oct 2023", y: 1500 },
+      { x: "Nov 2023", y: 2000 },
+      { x: "Dec 2023", y: 1500 },
+      { x: "Jan 2024", y: 1900 },
+      { x: "Feb 2024", y: 1200 },
+    ],
+  },
+  {
+    name: "Team C",
+    data: [
+      { x: "Jan 2023", y: 2000 },
+      { x: "Feb 2023", y: 2500 },
+      { x: "Mar 2023", y: 2000 },
+      { x: "Apr 2023", y: 2900 },
+      { x: "May 2023", y: 2000 },
+      { x: "Jun 2023", y: 2800 },
+      { x: "Jul 2023", y: 2700 },
+      { x: "Aug 2023", y: 2800 },
+      { x: "Sep 2023", y: 2000 },
+      { x: "Oct 2023", y: 2500 },
+      { x: "Nov 2023", y: 2500 },
+      { x: "Dec 2023", y: 2700 },
+      { x: "Jan 2024", y: 2000 },
+      { x: "Feb 2024", y: 2300 },
+    ],
+  },
+  {
+    name: "Team D",
+    data: [
+      { x: "Jan 2023", y: 3800 },
+      { x: "Feb 2023", y: 3000 },
+      { x: "Mar 2023", y: 3200 },
+      { x: "Apr 2023", y: 3000 },
+      { x: "May 2023", y: 3800 },
+      { x: "Jun 2023", y: 3000 },
+      { x: "Jul 2023", y: 3400 },
+      { x: "Aug 2023", y: 3000 },
+      { x: "Sep 2023", y: 3400 },
+      { x: "Oct 2023", y: 3200 },
+      { x: "Nov 2023", y: 3400 },
+      { x: "Dec 2023", y: 3700 },
+      { x: "Jan 2024", y: 3500 },
+      { x: "Feb 2024", y: 3200 },
+    ],
+  },
 ];
 
-
 const Home: React.FC = () => {
-    const [chartOptions, setChartOptions] = useState<any | null>(null); // Adjust the type accordingly
-    const [chartSeries, setChartSeries] = useState(jsonData);;
+  const [chartOptions, setChartOptions] = useState<any | null>(null);
+  const [chartSeries, setChartSeries] = useState(newChartData);
 
-    useEffect(() => {
-        import("react-apexcharts").then(({ default: ReactApexChart }) => {
-            const updatedChartSeries = chartSeries.map((series, seriesIndex) => ({
-                name: series.country,
-                data: series.data.map((point, index) => ({
-                  x: new Date(point.date).getTime(),
-                  y: point.visits,
-                  strokeDashArray:
-                    seriesIndex === chartSeries.length - 1 && index === series.data.length - 1
-                      ? [5, 5]
-                      : undefined,
-                })),
-              }));
 
-              
-            setChartOptions({
-                chart: {
-                    id: "area-chart",
-                    toolbar: {
-                        show: true,
-                        tools: {
-                            zoom: true,
-                            zoomin: true,
-                            zoomout: true,
-                            pan: true,
-                        },
-                        autoSelected: "zoom",
-                    },
-                },
-                xaxis: {
-                    type: "datetime",
-                    labels: {
-                        style: {
-                            colors: "#747580",
-                            fontFamily: "Inter",
-                        },
-                    },
-                },
-                yaxis: {
-                    labels: {
-                        formatter: (value: number) => (value !== undefined ? value.toFixed(2) : ""),
-                        style: {
-                            colors: "#747580",
-                            fontFamily: "Inter",
-                        },
-                    },
-                },
-                responsive: [
-                    {
-                        breakpoint: 1000,
-                        options: {
-                            chart: {
-                                width: "100%",
-                            },
-                        },
-                    },
-                ],
-                markers: {
-                    size: [3, 5],
-                    colors: ["#605BFF", "#008000", "#FF0000", "#FFA500"],
-                    hover: {
-                        size: 5,
-                    },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                stroke: {
-                    curve: "smooth",
-                    width: 2,
-                    colors: ["#605BFF", "#228822", "#FF0000", "#FFA500"],
-                },
-                series: updatedChartSeries,
-                fill: {
-                    type: "gradient",
-                    gradient: {
-                        shadeIntensity: 1,
-                        gradientToColors: ["#605BFF"],
-                        inverseColors: true,
-                        opacityFrom: 0.75,
-                        opacityTo: 0,
-                        stops: [30, 150],
-                    },
-                },
-                tooltip: {
-                    x: {
-                        format: 'dd MMM yyyy',
-                    },
-                },
-                crosshairs: {
-                    show: true,
-                    position: 'back',
-                    stroke: {
-                        color: '#b6b6b6',
-                        width: 1,
-                        dashArray: 3,
-                    },
-                },
-                annotations: {
-                    position: 'front',
-                    yaxis: [
-                        {
-                            y: 3000,
-                            strokeDashArray: 5,
-                            label: {
-                                position: 'left',
-                                borderColor: 'transparent',
-                                textAnchor: 'middle',
-                                offsetY: -10,
-                                offsetX: 50,
-                                style: {
-                                    color: '#D0D4D9',
-                                    background: "transparent",
-                                },
-                                text: ''
-                            }
-                        }
-                    ]
-                }
-            });
-        });
-    }, [chartSeries]);
+  useEffect(() => {
+    import("react-apexcharts").then(({ default: ReactApexChart }) => {
+      const calculateSum = () => {
+        return chartSeries.map((series) =>
+          series.data.reduce(
+            (seriesTotal, dataPoint) => seriesTotal + dataPoint.y,
+            0
+          )
+        );
+      };
 
-    if (typeof window === "undefined" || !chartOptions) {
-        return <div>Loading...</div>;
-    }
+      const calculateSumText = () => {
+        const sums = calculateSum();
+        return sums
+          .map((sum, index) => `${chartSeries[index].name} Total: ${sum}`)
+          .join(" , ");
+      };
 
-    const ReactApexChart = require("react-apexcharts").default;
+      const newChartOptions = {
+        series: chartSeries,
+        chart: {
+          height: 600,
+          type: "rangeArea",
+          animations: {
+            speed: 600,
+          },
+          stacked: false,
+          toolbar: {
+            tools: {
+              pan: false,
+              selection: true,
+            },
+            autoSelected: "zoom",
+          },
+        },
+        xaxis: {
+          type: "datetime",
+          labels: {
+            style: {
+              colors: "#ffffff60",
+            },
+            datetimeFormatter: {
+              year: "yyyy",
+              month: "MMM 'yy",
+            },
+          },
+          axisBorder: {
+            show: true,
+            color: "#78909C",
+            height: 1,
+            width: "100%",
+            offsetX: 0,
+            offsetY: 0,
+          },
+          tooltip: {
+            enabled: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            colors: "#ffffff33",
+            opacity: 0.2,
+          },
+          labels: {
+            style: {
+              colors: "#ffffff60",
+            },
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        colors: ["#4EE29B", "#00AEF5", "#F27935", "#B192FF"],
+        opacity: [1, 1, 1, 1],
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.65,
+            opacityTo: 0.05,
+            stops: [-30, 250],
+          },
+        },
+        forecastDataPoints: {
+          count: 2,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 2,
+        },
+        legend: {
+          show: true,
+          position: "bottom",
+          horizontalAlign: "right",
+          customLegendItems: ["Team A", "Team B", "Team C", "Team D"],
+          inverseOrder: false,
+          offsetY: 7,
+          labels: {
+            colors: "#ffffff90",
+          },
+        },
+        grid: {
+          show: true,
+          borderColor: "#ffffff20",
+          yasis: {
+            lines: {
+              show: true,
+            },
+          },
+        },
+        title: {
+          text: "Check In Growth Quantity",
+          style: {
+            color: "#fff",
+            fontSize: "20px",
+            fontWeight: 600,
+          },
+        },
+        subtitle: {
+          text: `${calculateSumText()}`,
+          margin: 14,
+          style: {
+            fontSize: "14px",
+            color: "RGB(78,171,240,0.8)",
+            fontFamily: "Inter",
+            fontWeight: "light",
+          },
+        },
+        markers: {
+          size: 3,
+          strokeWidth: 1,
+          strokeColor: "#01012795",
+          hover: {
+            sizeOffset: 3,
+            size: 5,
+          },
+        },
+        onItemClick: {
+          toggleDataSeries: true,
+        },
+        onItemHover: {
+          highlightDataSeries: true,
+        },
+        noData: {
+          text: "Loading...",
+        },
+      };
+      setChartOptions(newChartOptions);
+    });
+  }, [chartSeries]);
 
-    return (
-        <div className="bg-[#2A2D3E] p-5">
-            <p>Check In Growth Quantity</p>
-            <ReactApexChart
-                options={chartOptions}
-                series={chartOptions.series}
-                type="area"
-                height={400}
-            />
-        </div>
-    );
+  if (typeof window === "undefined" || !chartOptions) {
+    return <div>Loading...</div>;
+  }
+
+  const ReactApexChart = require("react-apexcharts").default;
+
+  return (
+    <div className="bg-[#010127] mx-auto sm:px-14 p-4 sm:py-10">
+      <ReactApexChart
+        options={chartOptions}
+        series={chartOptions.series}
+        type="area"
+        height={500}
+      />
+    </div>
+  );
 };
 
 export default Home;
