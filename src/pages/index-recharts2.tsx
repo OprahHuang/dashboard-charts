@@ -108,9 +108,17 @@ export default function Home() {
           <Tooltip />
           <Legend />
 
-          <Area type="monotone" dataKey="uv" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#82ca9d"/>
-          <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#ffc658" />
+          {data.map((entry, index) => (
+            <Area
+              key={entry.name}
+              type="monotone"
+              dataKey={`data${index}`}
+              stackId="1"
+              fill={index === data.length - 1 ? "#ffc658" : "#8884d8"}
+              stroke={index === data.length - 1 ? "#ffc658" : "#8884d8"}
+              strokeDasharray={index === data.length - 1 ? "3 3" : "0"}
+            />
+          ))}
         </AreaChart>
       </ResponsiveContainer>
     </div>

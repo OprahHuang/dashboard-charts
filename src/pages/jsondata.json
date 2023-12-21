@@ -1,0 +1,126 @@
+[
+    {
+        "country": "Germany",
+        "data": [
+            { "date": "2023-01", "visits": 120
+            },
+            { "date": "2023-02", "visits": 150
+            },
+            { "date": "2023-03", "visits": 180
+            },
+            { "date": "2023-04", "visits": 200
+            },
+            { "date": "2023-05", "visits": 230
+            },
+            { "date": "2023-06", "visits": 250
+            },
+            { "date": "2023-07", "visits": 280
+            },
+            { "date": "2023-08", "visits": 300
+            },
+            { "date": "2023-09", "visits": 330
+            },
+            { "date": "2023-10", "visits": 350
+            },
+            { "date": "2023-11", "visits": 380
+            },
+            { "date": "2023-12", "visits": 400
+            },
+            { "date": "2024-01", "visits": 430
+            }
+        ]
+    },
+    {
+        "country": "Japan",
+        "data": [
+            { "date": "2023-01", "visits": 80
+            },
+            { "date": "2023-02", "visits": 90
+            },
+            { "date": "2023-03", "visits": 100
+            },
+            { "date": "2023-04", "visits": 110
+            },
+            { "date": "2023-05", "visits": 120
+            },
+            { "date": "2023-06", "visits": 130
+            },
+            { "date": "2023-07", "visits": 140
+            },
+            { "date": "2023-08", "visits": 150
+            },
+            { "date": "2023-09", "visits": 160
+            },
+            { "date": "2023-10", "visits": 170
+            },
+            { "date": "2023-11", "visits": 180
+            },
+            { "date": "2023-12", "visits": 190
+            },
+            { "date": "2024-01", "visits": 240
+            }
+        ]
+    },
+    {
+        "country": "Canada",
+        "data": [
+            { "date": "2023-01", "visits": 50
+            },
+            { "date": "2023-02", "visits": 55
+            },
+            { "date": "2023-03", "visits": 60
+            },
+            { "date": "2023-04", "visits": 65
+            },
+            { "date": "2023-05", "visits": 70
+            },
+            { "date": "2023-06", "visits": 75
+            },
+            { "date": "2023-07", "visits": 80
+            },
+            { "date": "2023-08", "visits": 85
+            },
+            { "date": "2023-09", "visits": 90
+            },
+            { "date": "2023-10", "visits": 95
+            },
+            { "date": "2023-11", "visits": 100
+            },
+            { "date": "2023-12", "visits": 105
+            },
+            { "date": "2024-01", "visits": 130
+            }
+        ]
+    },
+    {
+        "country": "U.K.",
+        "data": [
+            { "date": "2023-01", "visits": 200
+            },
+            { "date": "2023-02", "visits": 210
+            },
+            { "date": "2023-03", "visits": 220
+            },
+            { "date": "2023-04", "visits": 230
+            },
+            { "date": "2023-05", "visits": 240
+            },
+            { "date": "2023-06", "visits": 250
+            },
+            { "date": "2023-07", "visits": 260
+            },
+            { "date": "2023-08", "visits": 270
+            },
+            { "date": "2023-09", "visits": 280
+            },
+            { "date": "2023-10", "visits": 290
+            },
+            { "date": "2023-11", "visits": 300
+            },
+            { "date": "2023-12", "visits": 310
+            },
+            { "date": "2024-01", "visits": 360
+            }
+        ]
+    }
+]
