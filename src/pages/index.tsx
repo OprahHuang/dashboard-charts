@@ -104,8 +104,7 @@ const Home: React.FC = () => {
     return sums.map((sum, index) =>
       <div key={index} className="bg-[#ffffff10] opacity-90 px-4 md:px-7 py-2 md:py-3 rounded-lg border border-[#ffffff15]">
         <p className="text-xl text-[#e3e3e3] font-semibold tracking-wide"><span className="text-xs opacity-55 block font-light">{chartSeries[index].name}</span><span className="text-xs align-text-top font-light mr-2">Total</span>
-        <span className="text-xs align-text-top">$</span>{sum}</p>
-
+          <span className="text-xs align-text-top">$</span>{sum}</p>
       </div>
     )
   }
@@ -337,15 +336,15 @@ const Home: React.FC = () => {
         <div className="flex gap-1 md:gap-3">
           {showSeriesSum()}
         </div>
-        <div className="flex items-center mt-3 xl:mt-0 gap-2 text-sm tracking-wide">
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Day</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Day</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Week</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Week</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Month</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Month</a>
-            <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Year</a>
-          </div>
+        <div className="flex items-end mt-3 xl:mt-0 gap-2 text-xs tracking-wide">
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Day</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Day</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Week</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Week</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Month</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">3 Month</a>
+          <a href="" className="bg-[#ffffff40] hover:bg-[#ffffff60] rounded-md text-white opacity-70 px-3 py-1">Year</a>
+        </div>
       </div>
       <ReactApexChart
         options={chartOptions}
